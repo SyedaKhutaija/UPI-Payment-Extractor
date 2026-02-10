@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Upload Receipt</h2>
+<p>Upload a screenshot from GPay, PhonePe, or Paytm.</p>
+
+<form method="POST" action="/upload" enctype="multipart/form-data" onsubmit="showLoader()">
+    <div class="file-drop-area">
+        <input type="file" name="image" accept="image/*" required title="Click to select image">
+    </div>
+    <button type="submit">
+        <span>Extract Details</span>
+    </button>
+</form>
+
+<!-- Loading Overlay -->
+<div id="loader" class="loader-overlay" style="display: none;">
+    <div class="spinner"></div>
+    <p> Analyzing Receipt...</p>
+</div>
+
+<script>
+    function showLoader() {
+        document.getElementById('loader').style.display = 'flex';
+    }
+</script>
+{% endblock %}

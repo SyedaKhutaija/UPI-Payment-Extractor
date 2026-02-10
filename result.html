@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Extracted Details</h2>
+<p>Here's what we found in your receipt.</p>
+
+<div class="result-group">
+    <div class="result-row">
+        <span class="label">Amount Paid</span>
+        <span class="value value-highlight" style="color: #4ade80;">₹{{ amount }}</span>
+    </div>
+
+    <div class="result-row">
+        <span class="label">UPI ID</span>
+        <span class="value" style="font-size: 0.9rem;">{{ upi_id }}</span>
+    </div>
+
+    <div class="result-row">
+        <span class="label">Date</span>
+        <span class="value">{{ date }}</span>
+    </div>
+</div>
+
+<div class="actions">
+    <a href="/" class="btn-link">Upload Another</a>
+    <span style="color: rgba(255,255,255,0.2); margin: 0 1rem;">|</span>
+    <a href="/history" class="btn-link">View History</a>
+</div>
+
+{% endblock %}

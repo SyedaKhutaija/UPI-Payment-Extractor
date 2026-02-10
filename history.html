@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Payment History</h2>
+
+<div class="history-list">
+    {% if payments %}
+    {% for p in payments|reverse %}
+    <div class="history-card">
+        <div class="history-info">
+            <p style="color: var(--text-main); font-weight: 600;">{{ p.upi_id }}</p>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">{{ p.date }}</p>
+        </div>
+        <div class="history-amount">
+            ₹{{ p.amount }}
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No history found.</p>
+    {% endif %}
+</div>
+
+<div style="margin-top: 2rem;">
+    <a href="/">Back to Home</a>
+</div>
+{% endblock %}
